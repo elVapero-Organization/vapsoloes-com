@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home hero compositor</title>
+    <style>
+      * { box-sizing: border-box; }
+      html, body { margin: 0; overflow: hidden; background: #1a0b31; }
+      .cover { display: none; position: relative; overflow: hidden; background: url('../images/vapsolo-hero-backdrop.png') center / cover no-repeat; }
+      .cover.active { display: block; }
+      .cover::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(12, 3, 30, .16), transparent 27%, transparent 73%, rgba(12, 3, 30, .16)); }
+      .device { position: absolute; z-index: 2; background-repeat: no-repeat; filter: drop-shadow(0 28px 20px rgba(0, 0, 0, .5)); transform-origin: top left; }
+      .device::after { content: ''; position: absolute; inset: 12%; z-index: -1; border-radius: 50%; background: rgba(145, 255, 206, .18); filter: blur(26px); }
+      /* Every device below is a crop of the original, user-supplied product photo. */
+      .king { width: 340px; height: 790px; background-image: url('file:///C:/Users/Victus/Desktop/king%20pro.png'); background-size: 1000px 1000px; background-position: -366px -106px; }
+      .sixer { width: 300px; height: 745px; background-image: url('file:///C:/Users/Victus/Desktop/Sixer.webp'); background-size: 1000px 1000px; background-position: -340px -110px; }
+      .quads { width: 290px; height: 750px; background-image: url('file:///C:/Users/Victus/Desktop/quads.png'); background-size: 1100px 1100px; background-position: -192px -176px; }
+      .super { width: 340px; height: 790px; background-image: url('file:///C:/Users/Victus/Desktop/Super.png'); background-size: 1000px 1000px; background-position: -335px -100px; }
+
+      #desktop { width: 1600px; height: 900px; }
+      #desktop .sixer { left: 150px; top: 110px; transform: scale(.91); }
+      #desktop .king { left: 560px; top: 235px; transform: scale(.665); }
+      #desktop .super { left: 855px; top: 235px; transform: scale(.665); }
+      #desktop .quads { left: 1180px; top: 110px; transform: scale(.91); }
+
+      #mobile { width: 900px; height: 900px; }
+      #mobile .sixer { left: 102px; top: 42px; transform: scale(.64); }
+      #mobile .quads { left: 505px; top: 42px; transform: scale(.64); }
+      #mobile .king { left: 112px; top: 480px; transform: scale(.47); }
+      #mobile .super { left: 522px; top: 480px; transform: scale(.47); }
+    </style>
+  </head>
+  <body>
+    <main id="desktop" class="cover"><i class="device sixer"></i><i class="device king"></i><i class="device super"></i><i class="device quads"></i></main>
+    <main id="mobile" class="cover"><i class="device sixer"></i><i class="device quads"></i><i class="device king"></i><i class="device super"></i></main>
+    <script>
+      const mode = new URLSearchParams(location.search).get('mode') || 'desktop';
+      document.getElementById(mode).classList.add('active');
+    </script>
+  </body>
+</html>

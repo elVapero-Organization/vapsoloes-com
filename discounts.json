@@ -1,0 +1,10 @@
+{
+  "updated": "2026-09-25",
+  "source": "Las nueve fichas de producto enlazadas mostraban estos tramos al verificarlas el 25/09/2026. Son condiciones de la tienda externa y deben confirmarse en la ficha del modelo antes de comprar.",
+  "tiers": [
+    {"label": "3 o más unidades", "discount": "-10%"},
+    {"label": "6 o más unidades", "discount": "-15%"},
+    {"label": "10 o más unidades", "discount": "-20%"},
+    {"label": "50 o más unidades", "discount": "-50%"}
+  ]
+}
