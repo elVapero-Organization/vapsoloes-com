@@ -175,11 +175,22 @@ a:focus-visible,button:focus-visible,summary:focus-visible {
   font-size:.78rem
 }
 .hero h1 {
-  font-size:clamp(2.4rem,6vw,5.2rem);
+  font-size:clamp(1.9rem,3.5vw,3.1rem);
   line-height:.94;
   letter-spacing:-.07em;
   margin:.6rem 0 1.1rem;
   max-width:800px
+}
+@media(min-width:801px) {
+  .nav {
+    position:relative
+  }
+  .nav-links {
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    margin-right:0
+  }
 }
 .lead {
   font-size:1.15rem;
